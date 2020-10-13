@@ -3,7 +3,7 @@
 
 # Usage
 
-[Nuget Package](https://www.nuget.org/packages/Neuroglia.K8s/)
+[Nuget Package](https://www.nuget.org/packages/Neuroglia.StartupTasks/)
 
 ```
   dotnet add package Neuroglia.StartupTasks
