@@ -6,17 +6,28 @@ using System.Threading.Tasks;
 namespace Neuroglia.StartupTasks
 {
 
+    /// <summary>
+    /// Represents an <see cref="IHealthCheck"/> used to check whether or not <see cref="IStartupTask"/>s have run to completion
+    /// </summary>
     public class StartupTasksHealthCheck 
         : IHealthCheck
     {
 
+        /// <summary>
+        /// Initializes a new <see cref="StartupTasksHealthCheck"/>
+        /// </summary>
+        /// <param name="startupTaskManager">The service used to manage <see cref="IStartupTask"/>s</param>
         public StartupTasksHealthCheck(IStartupTaskManager startupTaskManager)
         {
             this.StartupTaskManager = startupTaskManager;
         }
 
+        /// <summary>
+        /// Gets the service used to manage <see cref="IStartupTask"/>s
+        /// </summary>
         protected IStartupTaskManager StartupTaskManager { get; }
 
+        /// <inheritdoc/>
         public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
             if (this.StartupTaskManager.TasksRanToCompletion)

@@ -4,5 +4,196 @@
         <name>Neuroglia.StartupTasks</name>
     </assembly>
     <members>
+        <member name="T:Neuroglia.StartupTasks.IServiceCollectionExtensions">
+            <summary>
+            Defines extensions for <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>s
+            </summary>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.IServiceCollectionExtensions.AddStartupTask``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds and configures the specified <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>
+            </summary>
+            <typeparam name="TTask">The type of <see cref="T:Neuroglia.StartupTasks.IStartupTask"/> to add</typeparam>
+            <param name="services">The extended <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+            <returns>The configured <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></returns>
+        </member>
+        <member name="T:Neuroglia.StartupTasks.IStartupTask">
+            <summary>
+            Defines the fundamentals of a startup task
+            </summary>
+        </member>
+        <member name="T:Neuroglia.StartupTasks.IStartupTaskDescriptor">
+            <summary>
+            Defines the fundamentals of an object used to describe an <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>
+            </summary>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.IStartupTaskDescriptor.Task">
+            <summary>
+            Gets the described <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>
+            </summary>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.IStartupTaskDescriptor.Name">
+            <summary>
+            Gets the <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>'s name
+            </summary>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.IStartupTaskDescriptor.StartedAt">
+            <summary>
+            Gets the UTC date and time at which the <see cref="T:Neuroglia.StartupTasks.IStartupTask"/> has started
+            </summary>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.IStartupTaskDescriptor.EndedAt">
+            <summary>
+            Gets the UTC date and time at which the <see cref="T:Neuroglia.StartupTasks.IStartupTask"/> has ended
+            </summary>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.IStartupTaskDescriptor.Duration">
+            <summary>
+            Gets the duration during which the <see cref="T:Neuroglia.StartupTasks.IStartupTask"/> has run
+            </summary>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.IStartupTaskDescriptor.MarkAsCompleted">
+            <summary>
+            Marks the <see cref="T:Neuroglia.StartupTasks.IStartupTask"/> as completed
+            </summary>
+        </member>
+        <member name="T:Neuroglia.StartupTasks.IStartupTaskManager">
+            <summary>
+            Defines the fundamentals of a service used to manage <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s
+            </summary>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.IStartupTaskManager.PendingTasks">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> containing all pending <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s
+            </summary>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.IStartupTaskManager.CompletedTasks">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> containing all completed <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s
+            </summary>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.IStartupTaskManager.TasksRanToCompletion">
+            <summary>
+            Gets a boolean indicating whether or not <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s have run to completion
+            </summary>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.IStartupTaskManager.Register(Neuroglia.StartupTasks.IStartupTask)">
+            <summary>
+            Registers the specified <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>
+            </summary>
+            <param name="task">The <see cref="T:Neuroglia.StartupTasks.IStartupTask"/> to register</param>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.IStartupTaskManager.MarkAsCompleted(Neuroglia.StartupTasks.IStartupTask)">
+            <summary>
+            Marks the specified <see cref="T:Neuroglia.StartupTasks.IStartupTask"/> as completed
+            </summary>
+            <param name="task">The <see cref="T:Neuroglia.StartupTasks.IStartupTask"/> to mark as completed</param>
+        </member>
+        <member name="T:Neuroglia.StartupTasks.StartupTask">
+            <summary>
+            Represents the default implementation of the <see cref="T:Neuroglia.StartupTasks.IStartupTask"/> interface
+            </summary>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTask.#ctor(Neuroglia.StartupTasks.IStartupTaskManager)">
+            <summary>
+            Initializes a new <see cref="T:Neuroglia.StartupTasks.StartupTask"/>
+            </summary>
+            <param name="startupTaskManager">The service used to manage <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s</param>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTask.StartupTaskManager">
+            <summary>
+            Gets the service used to manage <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s
+            </summary>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTask.StartAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTask.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Executes the <see cref="T:Neuroglia.StartupTasks.StartupTask"/>'s work
+            </summary>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/></param>
+            <returns>A new awaitable <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTask.StopAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTask.Dispose(System.Boolean)">
+            <summary>
+            Disposes of the <see cref="T:Neuroglia.StartupTasks.StartupTask"/>
+            </summary>
+            <param name="disposing">A boolean indicating whether or not the <see cref="T:Neuroglia.StartupTasks.StartupTask"/> is being disposed of</param>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTask.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:Neuroglia.StartupTasks.StartupTaskDescriptor">
+            <summary>
+            Represents the default implementation of the <see cref="T:Neuroglia.StartupTasks.IStartupTaskDescriptor"/> interface
+            </summary>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTaskDescriptor.#ctor(Neuroglia.StartupTasks.IStartupTask)">
+            <summary>
+            Initializes a new <see cref="T:Neuroglia.StartupTasks.StartupTaskDescriptor"/>
+            </summary>
+            <param name="task">The <see cref="T:Neuroglia.StartupTasks.IStartupTask"/> to describe</param>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTaskDescriptor.Task">
+            <inheritdoc/>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTaskDescriptor.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTaskDescriptor.StartedAt">
+            <inheritdoc/>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTaskDescriptor.EndedAt">
+            <inheritdoc/>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTaskDescriptor.Duration">
+            <inheritdoc/>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTaskDescriptor.MarkAsCompleted">
+            <inheritdoc/>
+        </member>
+        <member name="T:Neuroglia.StartupTasks.StartupTasksHealthCheck">
+            <summary>
+            Represents an <see cref="T:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck"/> used to check whether or not <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s have run to completion
+            </summary>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTasksHealthCheck.#ctor(Neuroglia.StartupTasks.IStartupTaskManager)">
+            <summary>
+            Initializes a new <see cref="T:Neuroglia.StartupTasks.StartupTasksHealthCheck"/>
+            </summary>
+            <param name="startupTaskManager">The service used to manage <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s</param>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTasksHealthCheck.StartupTaskManager">
+            <summary>
+            Gets the service used to manage <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s
+            </summary>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTasksHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Neuroglia.StartupTasks.StartupTaskManager">
+            <summary>
+            Represents the default implementation of the <see cref="T:Neuroglia.StartupTasks.IStartupTaskManager"/> interface
+            </summary>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTaskManager.PendingTasks">
+            <inheritdoc/>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTaskManager.CompletedTasks">
+            <inheritdoc/>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTaskManager.TasksRanToCompletion">
+            <inheritdoc/>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTaskManager.Register(Neuroglia.StartupTasks.IStartupTask)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTaskManager.MarkAsCompleted(Neuroglia.StartupTasks.IStartupTask)">
+            <inheritdoc/>
+        </member>
     </members>
 </doc>

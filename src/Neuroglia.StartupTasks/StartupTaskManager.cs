@@ -4,6 +4,9 @@ using System.Linq;
 namespace Neuroglia.StartupTasks
 {
 
+    /// <summary>
+    /// Represents the default implementation of the <see cref="IStartupTaskManager"/> interface
+    /// </summary>
     public class StartupTaskManager
         : IStartupTaskManager
     {
@@ -11,6 +14,7 @@ namespace Neuroglia.StartupTasks
         private object _Lock = new object();
 
         private List<IStartupTaskDescriptor> _PendingTasks = new List<IStartupTaskDescriptor>();
+        /// <inheritdoc/>
         public IReadOnlyCollection<IStartupTaskDescriptor> PendingTasks
         {
             get
@@ -20,6 +24,7 @@ namespace Neuroglia.StartupTasks
         }
 
         private List<IStartupTaskDescriptor> _CompletedTasks = new List<IStartupTaskDescriptor>();
+        /// <inheritdoc/>
         public IReadOnlyCollection<IStartupTaskDescriptor> CompletedTasks
         {
             get
@@ -28,6 +33,7 @@ namespace Neuroglia.StartupTasks
             }
         }
 
+        /// <inheritdoc/>
         public bool TasksRanToCompletion
         {
             get
@@ -36,6 +42,7 @@ namespace Neuroglia.StartupTasks
             }
         }
 
+        /// <inheritdoc/>
         public void Register(IStartupTask task)
         {
             lock (this._Lock)
@@ -44,6 +51,7 @@ namespace Neuroglia.StartupTasks
             }
         }
 
+        /// <inheritdoc/>
         public void MarkAsCompleted(IStartupTask task)
         {
             lock (this._Lock)

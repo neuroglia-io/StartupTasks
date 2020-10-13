@@ -4,5 +4,46 @@
         <name>Neuroglia.StartupTasks.AspNetCore</name>
     </assembly>
     <members>
+        <member name="T:Neuroglia.StartupTasks.IApplicationBuilderExtensions">
+            <summary>
+            Defines extensions for <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>s
+            </summary>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.IApplicationBuilderExtensions.UseStartupTasks(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Adds and configures the <see cref="T:Neuroglia.StartupTasks.StartupTaskMiddleware"/>, used for <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>-related <see cref="T:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck"/>s
+            </summary>
+            <param name="application">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> to configre</param>
+            <returns>The configured <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/></returns>
+        </member>
+        <member name="T:Neuroglia.StartupTasks.StartupTaskMiddleware">
+            <summary>
+            Represents a middleware used to interrupt the request pipeline's execution while <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s are running
+            </summary>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTaskMiddleware.#ctor(Neuroglia.StartupTasks.IStartupTaskManager,Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            Initializes a new <see cref="T:Neuroglia.StartupTasks.StartupTaskMiddleware"/>
+            </summary>
+            <param name="startupTaskManager">The service used to manage <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s</param>
+            <param name="next">The next <see cref="T:Microsoft.AspNetCore.Http.RequestDelegate"/> in the pipeline</param>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTaskMiddleware.StartupTaskManager">
+            <summary>
+            Gets the service used to manage <see cref="T:Neuroglia.StartupTasks.IStartupTask"/>s
+            </summary>
+        </member>
+        <member name="P:Neuroglia.StartupTasks.StartupTaskMiddleware.Next">
+            <summary>
+            Gets the next <see cref="T:Microsoft.AspNetCore.Http.RequestDelegate"/> in the pipeline
+            </summary>
+        </member>
+        <member name="M:Neuroglia.StartupTasks.StartupTaskMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invokes the middleware
+            </summary>
+            <param name="httpContext">The current <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/></param>
+            <returns>A new awaitable <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
     </members>
 </doc>
