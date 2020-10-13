@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Neuroglia.StartupTasks</RootNamespace>
+    <OutputType>Library</OutputType>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Authors>Charles d'Avernas</Authors>
+    <Company>Neuroglia SPRL</Company>
+    <Copyright>Copyright © 2020 - Neuroglia SPRL. All rights reserved</Copyright>
+    <Title>Neuroglia StartupTasks.AspNetCore</Title>
+    <PackageTags>neuroglia, startup, task, asp.net</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/neuroglia-io/StartupTasks</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/neuroglia-io/StartupTasks</RepositoryUrl>
+    <PackageIcon>logo_white.jpg</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>Neuroglia.StartupTasks.AspNetCore.xml</DocumentationFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Users\User\Pictures\logo_white.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Neuroglia.StartupTasks\Neuroglia.StartupTasks.csproj" />
+  </ItemGroup>
+
+</Project>

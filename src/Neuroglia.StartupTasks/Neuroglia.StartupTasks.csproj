@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Authors>Charles d'Avernas</Authors>
+    <Company>Neuroglia SPRL</Company>
+    <Copyright>Copyright © 2020 - Neuroglia SPRL. All rights reserved</Copyright>
+    <Title>Neuroglia StartupTasks</Title>
+    <PackageTags>neuroglia, startup, task</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/neuroglia-io/StartupTasks</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/neuroglia-io/StartupTasks</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageIcon>logo_white.jpg</PackageIcon>
+    <Description>A .NET Standard 2.1 library that defines abstractions and implementations to manage startup tasks</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>Neuroglia.StartupTasks.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="3.1.8" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Users\User\Pictures\logo_white.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

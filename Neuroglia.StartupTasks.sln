@@ -1,0 +1,36 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{46428209-09CC-4ED2-9D40-1E7EFD56F16E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neuroglia.StartupTasks", "src\Neuroglia.StartupTasks\Neuroglia.StartupTasks.csproj", "{24265CBE-AD3C-4480-8DC9-C74C4231E9BE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neuroglia.StartupTasks.AspNetCore", "src\Neuroglia.StartupTasks.AspNetCore\Neuroglia.StartupTasks.AspNetCore.csproj", "{D81C178F-A16E-4ED7-9F46-C126865C9CBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24265CBE-AD3C-4480-8DC9-C74C4231E9BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24265CBE-AD3C-4480-8DC9-C74C4231E9BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24265CBE-AD3C-4480-8DC9-C74C4231E9BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24265CBE-AD3C-4480-8DC9-C74C4231E9BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D81C178F-A16E-4ED7-9F46-C126865C9CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81C178F-A16E-4ED7-9F46-C126865C9CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81C178F-A16E-4ED7-9F46-C126865C9CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81C178F-A16E-4ED7-9F46-C126865C9CBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{24265CBE-AD3C-4480-8DC9-C74C4231E9BE} = {46428209-09CC-4ED2-9D40-1E7EFD56F16E}
+		{D81C178F-A16E-4ED7-9F46-C126865C9CBD} = {46428209-09CC-4ED2-9D40-1E7EFD56F16E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {693DF4E6-765D-4C77-984B-9447035A8EE2}
+	EndGlobalSection
+EndGlobal
