@@ -35,8 +35,6 @@ namespace Neuroglia.StartupTasks
         {
             this.StartupTaskManager.Register(this);
             this._ExecutingTask = this.ExecuteAsync(cancellationToken).ContinueWith((t) => this.StartupTaskManager.MarkAsCompleted(this));
-            if (this._ExecutingTask.IsCompleted)
-                return this._ExecutingTask;
             return Task.CompletedTask;
         }
 

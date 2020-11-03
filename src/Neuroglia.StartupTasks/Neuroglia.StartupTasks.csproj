@@ -14,12 +14,13 @@
     <PackageProjectUrl>https://github.com/neuroglia-io/StartupTasks</PackageProjectUrl>
     <RepositoryUrl>https://github.com/neuroglia-io/StartupTasks</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageIcon>logo_white.jpg</PackageIcon>
+    <PackageIcon>neurologo.jpg</PackageIcon>
     <Description>A .NET Standard 2.1 library that defines abstractions and implementations to manage startup tasks</Description>
   </PropertyGroup>
 
   <PropertyGroup>
     <DocumentationFile>Neuroglia.StartupTasks.xml</DocumentationFile>
+    <Version>1.0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\Users\User\Pictures\logo_white.jpg">
+    <None Include="..\..\..\..\..\Pictures\neurologo.jpg">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
